@@ -3,13 +3,13 @@ import numpy as np
 from tqdm import tqdm
 from random import random
 
-x = np.zeros((10,2))
+x = np.zeros((10,1,2))
 y = np.zeros((10,2))
 
 for i in range(10):
 	temp=2*i+random()
-	x[i][0]=i
-	x[i][1]=temp
+	x[i][0][0]=i
+	x[i][0][1]=temp
 	if temp>2*i+0.5:
 		y[i][1]=1
 	else:

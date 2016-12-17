@@ -10,8 +10,9 @@ from keras.utils.np_utils import to_categorical
 from keras import backend as K
 
 #y=mx+b type regression
-frame_in = Input(shape=(2,), name='data_input')
-out = Dense(2, activation='softmax', name='out', init='lecun_uniform')(frame_in)
+frame_in = Input(shape=(1,2), name='data_input')
+flat = Flatten()(frame_in)
+out = Dense(2, activation='softmax', name='out', init='lecun_uniform')(flat)
 
 model = Model(input=frame_in, output=out)
 adam = Adam(lr=0.1)
